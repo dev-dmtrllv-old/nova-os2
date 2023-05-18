@@ -80,9 +80,9 @@ boot_not_found_msg 		db "No bootable partition found!", 0
 boot_read_error_msg 	db "Read error!", 0
 ok_msg 					db "OK!", 0
 
-%include "lib/disk.asm"
-%include "lib/print.asm"
-%include "lib/common.asm"
+%include "./lib/disk.asm"
+%include "./lib/print.asm"
+%include "./lib/common.asm"
 
 TIMES 446 - ($ - $$) db 0x0
 
