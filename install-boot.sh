@@ -21,6 +21,7 @@ echo "installing BPB boot code..."
 LOOP_DEV=$(sudo losetup -o $PART_1_OFFSET --show -f -P $DISK_NAME)
 sudo dd bs=1 if=out/boot/bpb.o count=3 of=$LOOP_DEV conv=notrunc
 sudo dd bs=1 skip=$BOOT_OFFSET if=out/boot/bpb.o iflag=skip_bytes of=$LOOP_DEV seek=$BOOT_OFFSET conv=notrunc
+sudo dd bs=512 if=out/boot/boot.o of=$LOOP_DEV seek=7 conv=notrunc
 sudo losetup -d $LOOP_DEV
 
 echo "installing boot done!"

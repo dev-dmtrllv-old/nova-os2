@@ -17,7 +17,7 @@ check_drive_ext:					; checks if the drive extension is available
 
 read_sectors:
 	mov ah, 0x42
-	mov dl, [booted_drive_index]
+	mov dl, byte [booted_drive_index]
 	mov si, dap
 	int 0x13
 	ret

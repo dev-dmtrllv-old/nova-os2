@@ -40,11 +40,14 @@ debug:
 	$(MAKE) build
 	$(QEMU) $(QEMU_FLAGS) -drive format=raw,file=$(DISK_IMG) -s -S -no-shutdown
 
+dump-fs1:
+	xxd -l 0x10000 -o 0x10000 out/disk.img > fat1.dump
+
 clear:
 	make clean
 	clear
 
 clean:
-	rm -rf out
-	rm -rf $(DISK_IMG)
-	rm -rf *.mem
+	@rm -rf out
+	@rm -rf *.mem
+	@rm -rf *.dump
