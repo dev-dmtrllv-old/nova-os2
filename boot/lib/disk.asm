@@ -1,4 +1,4 @@
-check_drive_ext:					; checks if the drive extension is available
+check_drive_ext:						; checks if the drive extension is available
 	xor ax, ax
 	xor dx, dx
 	mov ah, 0x41
